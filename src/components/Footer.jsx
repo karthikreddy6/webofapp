@@ -1,5 +1,6 @@
 import React from 'react'
 import { Heart, ArrowUp, Shield, FileText, BookOpen } from 'lucide-react'
+import { PLAY_STORE_URL } from '../constants'
 
 export default function Footer({ onDownloadClick, onNavigatePage }) {
   const scrollToTop = () => {
@@ -32,12 +33,15 @@ export default function Footer({ onDownloadClick, onNavigatePage }) {
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <button
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onDownloadClick}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-xs font-bold text-white transition-colors cursor-pointer"
               >
                 <span>Google Play Store</span>
-              </button>
+              </a>
               <a
                 href="mailto:support@buvva.co.in"
                 className="text-xs text-slate-400 hover:text-white transition-colors"
@@ -73,12 +77,15 @@ export default function Footer({ onDownloadClick, onNavigatePage }) {
                 </a>
               </li>
               <li>
-                <button
+                <a
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={onDownloadClick}
                   className="hover:text-orange-400 transition-colors cursor-pointer"
                 >
                   Download Android App
-                </button>
+                </a>
               </li>
             </ul>
           </div>

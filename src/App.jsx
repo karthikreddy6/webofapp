@@ -12,6 +12,7 @@ import Footer from './components/Footer'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsAndConditions from './pages/TermsAndConditions'
 import DetailedHowItWorks from './pages/DetailedHowItWorks'
+import { PLAY_STORE_URL } from './constants'
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -51,20 +52,7 @@ export default function App() {
   }
 
   const handleDownloadClick = () => {
-    if (currentPage !== 'home') {
-      handleNavigatePage('home')
-      setTimeout(() => {
-        const downloadSection = document.getElementById('download')
-        if (downloadSection) {
-          downloadSection.scrollIntoView({ behavior: 'smooth' })
-        }
-      }, 150)
-    } else {
-      const downloadSection = document.getElementById('download')
-      if (downloadSection) {
-        downloadSection.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
+    window.open(PLAY_STORE_URL, '_blank', 'noopener,noreferrer')
   }
 
   return (

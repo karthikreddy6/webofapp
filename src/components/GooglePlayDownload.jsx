@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Download, Sparkles, Smartphone, ShieldCheck } from 'lucide-react'
 import confetti from 'canvas-confetti'
+import { PLAY_STORE_URL } from '../constants'
 
 export default function GooglePlayDownload() {
   const triggerDownloadAction = () => {
@@ -13,9 +14,6 @@ export default function GooglePlayDownload() {
         colors: ['#FF5200', '#FF7A30', '#10B981', '#F59E0B', '#3B82F6', '#A855F7'],
       })
     } catch (e) { /* ignore */ }
-
-    const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.buvva.app'
-    window.open(playStoreUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -60,9 +58,12 @@ export default function GooglePlayDownload() {
 
               {/* Google Play Button */}
               <div className="mt-8">
-                <button
+                <a
+                  href={PLAY_STORE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={triggerDownloadAction}
-                  className="group relative flex items-center gap-4 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF5200] to-[#E64000] text-white font-bold text-base sm:text-lg shadow-xl shadow-orange-600/30 hover:shadow-orange-600/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-orange-400/30 overflow-hidden cursor-pointer"
+                  className="group relative inline-flex items-center gap-4 px-8 py-4 rounded-2xl bg-gradient-to-r from-[#FF5200] to-[#E64000] text-white font-bold text-base sm:text-lg shadow-xl shadow-orange-600/30 hover:shadow-orange-600/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 border border-orange-400/30 overflow-hidden cursor-pointer"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <svg className="w-9 h-9 fill-current text-white shrink-0 relative z-10" viewBox="0 0 512 512">
@@ -76,7 +77,7 @@ export default function GooglePlayDownload() {
                       Google Play
                     </span>
                   </div>
-                </button>
+                </a>
               </div>
 
               {/* Verified specs */}

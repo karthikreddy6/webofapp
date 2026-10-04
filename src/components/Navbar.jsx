@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Download, Menu, X, ArrowUpRight, BookOpen } from 'lucide-react'
+import { PLAY_STORE_URL } from '../constants'
 
 export default function Navbar({ onDownloadClick, onNavigatePage, currentPage }) {
   const [scrolled, setScrolled] = useState(false)
@@ -87,13 +88,16 @@ export default function Navbar({ onDownloadClick, onNavigatePage, currentPage })
 
         {/* Google Play CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          <button
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onDownloadClick}
             className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF7A30] to-[#FF5200] hover:from-[#FF5200] hover:to-[#E64000] shadow-md shadow-orange-500/25 hover:shadow-orange-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer"
           >
             <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
             <span>Get on Google Play</span>
-          </button>
+          </a>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -156,16 +160,19 @@ export default function Navbar({ onDownloadClick, onNavigatePage, currentPage })
             Terms & Conditions
           </button>
           <hr className="border-slate-200 my-1" />
-          <button
+          <a
+            href={PLAY_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => {
               setMobileMenuOpen(false)
-              onDownloadClick()
+              if (onDownloadClick) onDownloadClick()
             }}
             className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF7A30] to-[#FF5200] shadow-md shadow-orange-500/30"
           >
             <Download className="w-4 h-4" />
             <span>Download on Google Play</span>
-          </button>
+          </a>
         </div>
       )}
     </header>

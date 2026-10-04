@@ -16,6 +16,7 @@ import {
   Users,
   ChevronRight
 } from 'lucide-react'
+import { PLAY_STORE_URL } from '../constants'
 
 export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) {
   useEffect(() => {
@@ -426,13 +427,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
                 </div>
 
                 <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-                  <button
+                  <a
+                    href={PLAY_STORE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={onDownloadClick}
                     className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF7A30] to-[#FF5200] text-white font-bold text-sm shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download on Google Play</span>
-                  </button>
+                  </a>
 
                   <button
                     onClick={onNavigateHome}

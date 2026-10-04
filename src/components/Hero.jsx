@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Sparkles, ArrowRight, Clock, Zap, ChevronDown, BookOpen } from 'lucide-react'
+import { PLAY_STORE_URL } from '../constants'
 
 // Floating 3D Phone component that displays a real app screenshot
 function Floating3DPhone({ src, alt, className, style, delay = 0, rotateX = 12, rotateY = -8 }) {
@@ -182,7 +183,10 @@ export default function Hero({ onDownloadClick, onNavigatePage }) {
             {/* CTA Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               {/* Google Play Store Button */}
-              <button
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={onDownloadClick}
                 className="group relative flex items-center justify-center sm:justify-start gap-4 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF5200] to-[#E64000] text-white font-bold text-base shadow-xl shadow-orange-600/30 hover:shadow-orange-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 border border-orange-400/30 cursor-pointer"
               >
@@ -197,7 +201,7 @@ export default function Hero({ onDownloadClick, onNavigatePage }) {
                     Google Play
                   </span>
                 </div>
-              </button>
+              </a>
 
               {/* Detailed How It Works Button */}
               <button

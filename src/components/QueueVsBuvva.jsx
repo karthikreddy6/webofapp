@@ -24,24 +24,24 @@ export default function QueueVsBuvva() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
           
           {/* Pain Point Card: Old Way */}
-          <div className="rounded-3xl p-8 sm:p-10 bg-red-50/40 border border-red-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-red-50/40 border border-red-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden">
             <div>
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-red-600">
-                    <Frown className="w-6 h-6" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-red-100 flex items-center justify-center text-red-600 shrink-0">
+                    <Frown className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold font-display text-slate-900">The Old Canteen Rush</h3>
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-slate-900">The Old Canteen Rush</h3>
                     <span className="text-xs text-red-600 font-semibold">Chaos, Heat & Lost Time</span>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold">
+                <span className="self-start sm:self-auto px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold">
                   ~20+ Mins Lost
                 </span>
               </div>
 
-              <ul className="space-y-4 text-slate-700 text-sm sm:text-base">
+              <ul className="space-y-3.5 sm:space-y-4 text-slate-700 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
                   <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
                   <span>Standing in packed, suffocating queues under the noon heat.</span>
@@ -72,19 +72,19 @@ export default function QueueVsBuvva() {
           </div>
 
           {/* Solution Card: The Buvva Way */}
-          <div className="rounded-3xl p-8 sm:p-10 bg-gradient-to-b from-orange-50/70 via-white to-orange-50/40 border border-[#FF5200]/30 shadow-xl shadow-orange-500/10 flex flex-col justify-between relative overflow-hidden ring-1 ring-[#FF5200]/20">
+          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-gradient-to-b from-orange-50/70 via-white to-orange-50/40 border border-[#FF5200]/30 shadow-xl shadow-orange-500/10 flex flex-col justify-between relative overflow-hidden ring-1 ring-[#FF5200]/20">
             <div>
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF7A30] to-[#FF5200] flex items-center justify-center text-white shadow-md shadow-orange-500/30">
-                    <Smile className="w-6 h-6" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#FF7A30] to-[#FF5200] flex items-center justify-center text-white shadow-md shadow-orange-500/30 shrink-0">
+                    <Smile className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold font-display text-slate-900">The Buvva Experience</h3>
+                    <h3 className="text-lg sm:text-xl font-bold font-display text-slate-900">The Buvva Experience</h3>
                     <span className="text-xs text-[#FF5200] font-semibold">Scheduled & Live Ordering</span>
                   </div>
                 </div>
-                <span className="px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200">
+                <span className="self-start sm:self-auto px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200">
                   0 Min Line
                 </span>
               </div>

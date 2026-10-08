@@ -125,8 +125,8 @@ export default function Footer({ onDownloadClick, onNavigatePage }) {
         </div>
 
         {/* Bottom Sub-footer */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex items-center gap-1">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1">
             <span>© {new Date().getFullYear()} buvva.co.in. All rights reserved. Made with</span>
             <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" />
             <span>for college campus foodies.</span>

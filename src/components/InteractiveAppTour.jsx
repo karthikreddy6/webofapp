@@ -99,11 +99,136 @@ export default function InteractiveAppTour({ onNavigatePage }) {
           </p>
         </div>
 
-        {/* Interactive Layout: 6 Steps on Left, Interactive Phone on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        {/* Mobile Layout (< lg): Stepper Pills -> Centered Phone -> Active Detail Card */}
+        <div className="lg:hidden flex flex-col items-center">
+          {/* Scrollable Step Tab Bar */}
+          <div className="w-full flex items-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none touch-pan-x -mx-4 px-4 mb-6">
+            {STEPS.map((step, idx) => (
+              <button
+                key={step.id}
+                onClick={() => setActiveStep(idx)}
+                className={`shrink-0 px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 cursor-pointer ${
+                  activeStep === idx
+                    ? 'bg-[#FF5200] text-white shadow-md shadow-orange-500/25 scale-100'
+                    : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
+                }`}
+              >
+                <span className={`w-5 h-5 rounded-md flex items-center justify-center text-[10px] font-black ${
+                  activeStep === idx ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'
+                }`}>
+                  {idx + 1}
+                </span>
+                <span>{step.badge}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Centered Phone Preview on Mobile */}
+          <div className="relative w-full max-w-[270px] sm:max-w-[310px] mx-auto" style={{ perspective: '1200px' }}>
+            <div className="absolute -inset-6 bg-gradient-to-br from-orange-400/20 via-amber-300/10 to-transparent rounded-full blur-2xl opacity-70 pointer-events-none" />
+
+            <div className="relative bg-gradient-to-b from-slate-800 to-slate-950 rounded-[2.6rem] p-[3px] shadow-2xl shadow-slate-900/30">
+              <div className="bg-black rounded-[2.4rem] p-2 relative overflow-hidden">
+                {/* Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-black rounded-b-2xl z-30 flex items-center justify-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-slate-800 ring-1 ring-slate-700" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
+                </div>
+
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeStep}
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.02 }}
+                    transition={{ duration: 0.25, ease: 'easeInOut' }}
+                    className="relative z-10"
+                  >
+                    <img
+                      src={STEPS[activeStep].screenshot}
+                      alt={STEPS[activeStep].screenshotAlt}
+                      className="w-full h-auto rounded-[2.1rem]"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+
+                <div className="absolute inset-2 rounded-[2.1rem] z-20 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </div>
+
+            {/* Indicator dots on mobile */}
+            <div className="flex items-center justify-center gap-1.5 mt-4">
+              {STEPS.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveStep(idx)}
+                  className={`rounded-full transition-all duration-300 cursor-pointer ${
+                    activeStep === idx
+                      ? 'w-6 h-2 bg-[#FF5200]'
+                      : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                  }`}
+                  aria-label={`Step ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Active Step Explanation Card on Mobile */}
+          <div className="w-full mt-6 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm text-left">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#FF5200]">
+                {STEPS[activeStep].badge}
+              </span>
+              <span className="text-xs font-semibold text-slate-500">
+                {STEPS[activeStep].subtitle}
+              </span>
+            </div>
+            <h3 className="text-lg font-bold font-display text-slate-900">
+              {STEPS[activeStep].title}
+            </h3>
+            <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+              {STEPS[activeStep].description}
+            </p>
+            <div className="flex items-center justify-between mt-4 pt-3 border-t border-slate-100">
+              <button
+                onClick={() => setActiveStep((prev) => Math.max(0, prev - 1))}
+                disabled={activeStep === 0}
+                className={`text-xs font-bold py-1.5 px-3 rounded-lg ${
+                  activeStep === 0 ? 'text-slate-300' : 'text-slate-600 hover:text-[#FF5200]'
+                }`}
+              >
+                ← Prev
+              </button>
+              <button
+                onClick={() => setActiveStep((prev) => (prev + 1) % STEPS.length)}
+                className="text-xs font-bold py-1.5 px-3.5 rounded-lg bg-orange-50 text-[#FF5200] hover:bg-orange-100 font-display"
+              >
+                {activeStep === STEPS.length - 1 ? 'Start Over ↺' : 'Next Step →'}
+              </button>
+            </div>
+          </div>
+
+          {/* Full guide CTA on mobile */}
+          <div className="w-full mt-4 p-4 rounded-2xl bg-orange-50 border border-orange-200/80 flex items-center justify-between">
+            <div className="text-left">
+              <h4 className="text-xs font-bold text-slate-900">Detailed workflow breakdown?</h4>
+              <p className="text-[11px] text-slate-600">Explore full step-by-step tips.</p>
+            </div>
+            <button
+              onClick={() => onNavigatePage('how-it-works')}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FF5200] hover:bg-[#E64000] text-white text-xs font-bold shadow-sm transition-all shrink-0 cursor-pointer"
+            >
+              <span>Full Guide</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Layout (lg+): 6 Steps on Left, Interactive Phone on Right */}
+        <div className="hidden lg:grid grid-cols-12 gap-14 items-center">
           
           {/* Left: 6 Steps List */}
-          <div className="lg:col-span-6 flex flex-col gap-3">
+          <div className="col-span-6 flex flex-col gap-3">
             {STEPS.map((step, idx) => {
               const Icon = step.icon
               const isActive = activeStep === idx
@@ -175,7 +300,7 @@ export default function InteractiveAppTour({ onNavigatePage }) {
           </div>
 
           {/* Right: 3D Phone Preview with Actual Screenshot for Selected Step */}
-          <div className="lg:col-span-6 flex justify-center" style={{ perspective: '1200px' }}>
+          <div className="col-span-6 flex justify-center" style={{ perspective: '1200px' }}>
             <div className="relative w-full max-w-[310px] sm:max-w-[330px]">
               
               {/* Soft glow behind phone */}

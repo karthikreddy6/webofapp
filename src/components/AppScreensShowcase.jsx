@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 
 const SCREENS = [
   {
@@ -59,7 +59,7 @@ function ScreenCard({ screen, index }) {
         z: 40,
         transition: { duration: 0.25 },
       }}
-      className="flex-shrink-0 w-[220px] sm:w-[260px] relative group cursor-pointer"
+      className="flex-shrink-0 w-[210px] sm:w-[260px] snap-center relative group cursor-pointer"
       style={{ perspective: '1000px' }}
     >
       {/* Soft shadow for light canvas */}
@@ -81,9 +81,9 @@ function ScreenCard({ screen, index }) {
           {/* Glass reflection */}
           <div className="absolute inset-1.5 rounded-[2rem] bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none z-10" />
 
-          {/* Hover label overlay */}
-          <div className="absolute inset-1.5 rounded-[2rem] bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-6">
-            <span className="px-4 py-1.5 rounded-full bg-[#FF5200] text-white text-xs font-bold shadow-lg">
+          {/* Label overlay (always visible on mobile, hover on desktop) */}
+          <div className="absolute inset-1.5 rounded-[2rem] bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-95 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-end justify-center pb-4 sm:pb-6">
+            <span className="px-3.5 py-1.5 rounded-full bg-[#FF5200] text-white text-[11px] sm:text-xs font-bold shadow-lg">
               {screen.label}
             </span>
           </div>
@@ -94,19 +94,12 @@ function ScreenCard({ screen, index }) {
 }
 
 export default function AppScreensShowcase() {
-  const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  })
-  const x = useTransform(scrollYProgress, [0, 1], ['4%', '-14%'])
-
   return (
-    <section ref={containerRef} className="py-24 lg:py-32 relative overflow-hidden bg-[#FAF9F6] border-y border-slate-200/60">
+    <section className="py-20 lg:py-32 relative overflow-hidden bg-[#FAF9F6] border-y border-slate-200/60">
       {/* Soft ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-orange-200/30 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
             Live App Gallery
@@ -114,25 +107,25 @@ export default function AppScreensShowcase() {
           <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
             Every screen, crafted for campus speed.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600">
+          <p className="mt-4 text-sm sm:text-lg text-slate-600">
             Swipe through real Buvva app screens — from menu browsing to scheduled trays and instant token pickups.
           </p>
+          <div className="sm:hidden inline-flex items-center gap-1.5 text-xs text-[#FF5200] font-bold mt-3 px-3 py-1 rounded-full bg-orange-50 border border-orange-200">
+            <span>👈 Swipe left/right to view 👉</span>
+          </div>
         </div>
       </div>
 
-      {/* Horizontal scrolling showcase */}
-      <motion.div
-        style={{ x }}
-        className="flex items-center gap-6 sm:gap-8 px-8 sm:px-16 py-6"
-      >
+      {/* Horizontal touch-scrollable showcase with snap */}
+      <div className="overflow-x-auto scrollbar-none snap-x snap-mandatory touch-pan-x px-6 sm:px-16 py-4 flex items-center gap-4 sm:gap-8">
         {SCREENS.map((screen, idx) => (
           <ScreenCard key={idx} screen={screen} index={idx} />
         ))}
-      </motion.div>
+      </div>
 
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#FAF9F6] to-transparent pointer-events-none z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#FAF9F6] to-transparent pointer-events-none z-10" />
+      {/* Fade edges on desktop */}
+      <div className="hidden sm:block absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#FAF9F6] to-transparent pointer-events-none z-10" />
+      <div className="hidden sm:block absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#FAF9F6] to-transparent pointer-events-none z-10" />
     </section>
   )
 }

@@ -215,59 +215,59 @@ export default function Hero({ onDownloadClick, onNavigatePage }) {
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-10 pt-7 border-t border-slate-200/80 w-full grid grid-cols-3 gap-4">
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#FF5200]" />
-                  <span className="text-xl sm:text-2xl font-black font-display text-slate-900">0 min</span>
+            <div className="mt-8 sm:mt-10 pt-6 sm:pt-7 border-t border-slate-200/80 w-full grid grid-cols-3 gap-2 sm:gap-4">
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  <Clock className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#FF5200]" />
+                  <span className="text-lg sm:text-2xl font-black font-display text-slate-900">0 min</span>
                 </div>
-                <span className="text-xs text-slate-500 mt-0.5 font-medium">Queue Wait</span>
+                <span className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">Queue Wait</span>
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <Zap className="w-4 h-4 text-emerald-600" />
-                  <span className="text-xl sm:text-2xl font-black font-display text-slate-900">Live</span>
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  <Zap className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-emerald-600" />
+                  <span className="text-lg sm:text-2xl font-black font-display text-slate-900">Live</span>
                 </div>
-                <span className="text-xs text-slate-500 mt-0.5 font-medium">Kitchen Alerts</span>
+                <span className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">Kitchen Alerts</span>
               </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-[#FF5200]" />
-                  <span className="text-xl sm:text-2xl font-black font-display text-slate-900">₹0</span>
+              <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  <Sparkles className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#FF5200]" />
+                  <span className="text-lg sm:text-2xl font-black font-display text-slate-900">₹0</span>
                 </div>
-                <span className="text-xs text-slate-500 mt-0.5 font-medium">Platform Fee</span>
+                <span className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium">Platform Fee</span>
               </div>
             </div>
           </motion.div>
 
           {/* Right Column: 3D Floating Phone Screenshots */}
-          <div className="lg:col-span-7 relative flex items-center justify-center min-h-[480px] sm:min-h-[620px]" style={{ perspective: '1500px' }}>
+          <div className="lg:col-span-7 relative flex items-center justify-center min-h-[440px] sm:min-h-[620px] w-full" style={{ perspective: '1500px' }}>
             
-            {/* Center phone: Campus Menu */}
+            {/* Center phone: Campus Menu (Prominently centered on all devices) */}
             <Floating3DPhone
               src="/images/screen_menu.png"
               alt="Buvva App - Browse Campus Menu"
-              className="w-[230px] sm:w-[270px] z-30 relative"
+              className="w-[240px] sm:w-[270px] z-30 relative mx-auto"
               delay={0.2}
               rotateX={8}
               rotateY={-5}
             />
 
-            {/* Right phone: Live Order Token */}
+            {/* Right phone: Live Order Token (Shown on tablet & desktop) */}
             <Floating3DPhone
               src="/images/screen_order_token.png"
               alt="Buvva App - Live Order Token & Ready to Collect"
-              className="w-[190px] sm:w-[220px] z-20 absolute right-0 sm:right-4 lg:right-2 top-8 sm:top-6"
+              className="hidden sm:block w-[190px] sm:w-[220px] z-20 absolute right-0 sm:right-4 lg:right-2 top-8 sm:top-6"
               delay={0.4}
               rotateX={6}
               rotateY={-12}
             />
 
-            {/* Left phone: Schedule Meal Slot */}
+            {/* Left phone: Schedule Meal Slot (Shown on tablet & desktop) */}
             <Floating3DPhone
               src="/images/screen_schedule.png"
               alt="Buvva App - Schedule Your Meal Pickup Slot"
-              className="w-[170px] sm:w-[200px] z-10 absolute left-0 sm:left-2 lg:left-0 bottom-6 sm:bottom-2"
+              className="hidden sm:block w-[170px] sm:w-[200px] z-10 absolute left-0 sm:left-2 lg:left-0 bottom-6 sm:bottom-2"
               delay={0.6}
               rotateX={10}
               rotateY={6}
@@ -277,28 +277,28 @@ export default function Hero({ onDownloadClick, onNavigatePage }) {
             <FloatingFoodImage
               src="/images/card_of_food.png"
               alt="Chicken Biryani Card"
-              className="w-[160px] sm:w-[190px] z-40 -bottom-2 right-[15%] sm:right-[20%]"
+              className="w-[140px] sm:w-[190px] z-40 -bottom-3 right-2 sm:right-[18%]"
               delay={0.8}
             />
 
             {/* Floating badges with light glass styling */}
             <motion.div
-              animate={{ y: [0, -12, 0], rotate: [0, 4, 0] }}
+              animate={{ y: [0, -10, 0], rotate: [0, 3, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute top-4 left-[15%] z-40 px-3.5 py-2 rounded-2xl bg-white/90 border border-emerald-200 backdrop-blur-md shadow-lg shadow-slate-900/5"
+              className="absolute top-2 left-2 sm:top-4 sm:left-[15%] z-40 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl bg-white/95 border border-emerald-200 backdrop-blur-md shadow-md shadow-slate-900/5"
             >
-              <span className="text-xs font-bold text-emerald-700 flex items-center gap-1.5">
+              <span className="text-[11px] sm:text-xs font-bold text-emerald-700 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Live Kitchen Open
               </span>
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
+              animate={{ y: [0, -8, 0], rotate: [0, -3, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="absolute bottom-14 left-[4%] z-40 px-3.5 py-2 rounded-2xl bg-white/90 border border-orange-200 backdrop-blur-md shadow-lg shadow-slate-900/5"
+              className="absolute bottom-10 left-2 sm:bottom-14 sm:left-[4%] z-40 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl bg-white/95 border border-orange-200 backdrop-blur-md shadow-md shadow-slate-900/5"
             >
-              <span className="text-xs font-bold text-[#FF5200] flex items-center gap-1.5">
+              <span className="text-[11px] sm:text-xs font-bold text-[#FF5200] flex items-center gap-1.5">
                 ⚡ Ready in 0 min
               </span>
             </motion.div>
@@ -306,7 +306,7 @@ export default function Hero({ onDownloadClick, onNavigatePage }) {
             <motion.div
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-              className="absolute top-[32%] right-[4%] z-40 px-3.5 py-2 rounded-2xl bg-white/90 border border-amber-200 backdrop-blur-md shadow-lg shadow-slate-900/5"
+              className="hidden sm:block absolute top-[32%] right-[4%] z-40 px-3.5 py-2 rounded-2xl bg-white/95 border border-amber-200 backdrop-blur-md shadow-lg shadow-slate-900/5"
             >
               <span className="text-xs font-bold text-amber-700">₹160.00 Fresh Dish 🍛</span>
             </motion.div>

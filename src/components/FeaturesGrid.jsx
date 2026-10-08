@@ -72,13 +72,13 @@ export default function FeaturesGrid() {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {FEATURES.map((item, idx) => {
             const Icon = item.icon
             return (
               <div
                 key={idx}
-                className={`group p-8 rounded-3xl bg-gradient-to-b ${item.color} bg-white border ${item.border} hover:border-[#FF5200] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 flex flex-col justify-between`}
+                className={`group p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-b ${item.color} bg-white border ${item.border} hover:border-[#FF5200] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">

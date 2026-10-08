@@ -28,45 +28,45 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Navigation & Header */}
-        <div className="mb-14">
+        <div className="mb-8 sm:mb-14">
           <button
             onClick={onNavigateHome}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-[#FF5200] hover:border-[#FF5200]/30 shadow-sm transition-all mb-8 text-sm font-semibold cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-[#FF5200] hover:border-[#FF5200]/30 shadow-sm transition-all mb-6 sm:mb-8 text-sm font-semibold cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
-          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/80 shadow-sm relative overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-14 border border-slate-200/80 shadow-sm relative overflow-hidden">
             <img
               src="/images/logo.png"
               alt="Buvva College Food Ordering"
-              className="w-36 sm:w-44 mb-5 drop-shadow-sm"
+              className="w-32 sm:w-44 mb-4 sm:mb-5 drop-shadow-sm"
             />
 
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Step-by-Step Architecture</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-6xl font-display font-extrabold text-slate-900 tracking-tight leading-tight">
               How Buvva Works: <br />
               <span className="bg-gradient-to-r from-[#FF7A30] to-[#FF5200] bg-clip-text text-transparent">
                 The 6-Step Queue-Skipping Guide
               </span>
             </h1>
 
-            <p className="mt-5 text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
               From signing up to picking up your meal with <strong>zero wasted time</strong>. Follow the exact journey that lets students skip the crowded campus rush.
             </p>
           </div>
         </div>
 
         {/* 6 Steps Workflow */}
-        <div className="space-y-16">
+        <div className="space-y-8 sm:space-y-16">
           
           {/* STEP 1: Register */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -108,11 +108,11 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
 
               {/* Screenshot: screen_register.png */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_register.png"
                     alt="Buvva App - Register Account"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -121,16 +121,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
           </div>
 
           {/* STEP 2: Select College */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_select_college.png */}
               <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_select_college.png"
                     alt="Buvva App - Select College Dropdown"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -184,7 +184,7 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
           </div>
 
           {/* STEP 3: Select Item from Menu */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -234,11 +234,11 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
 
               {/* Screenshot: screen_menu.png */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_menu.png"
                     alt="Buvva App - Select Menu Items"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -247,16 +247,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
           </div>
 
           {/* STEP 4: Checkout */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_plate.png */}
               <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_plate.png"
                     alt="Buvva App - Your Plate and Checkout"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
           </div>
 
           {/* STEP 5: Schedule (Shedual) */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -361,11 +361,11 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
 
               {/* Screenshot: screen_schedule.png */}
               <div className="lg:col-span-5 flex justify-center">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_schedule.png"
                     alt="Buvva App - Schedule Your Pickup Slot"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -374,16 +374,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
           </div>
 
           {/* STEP 6: Get Order (Zero Wait Pickup) */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_order_token.png */}
               <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                <div className="w-full max-w-[270px] bg-slate-900 rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
+                <div className="w-full max-w-[230px] sm:max-w-[270px] bg-slate-900 rounded-[2.2rem] sm:rounded-[2.6rem] p-2 shadow-2xl shadow-slate-900/15 border-2 border-slate-800">
                   <img
                     src="/images/screen_order_token.png"
                     alt="Buvva App - Ready to Collect Order Token"
-                    className="w-full h-auto rounded-[2.3rem]"
+                    className="w-full h-auto rounded-[1.9rem] sm:rounded-[2.3rem]"
                   />
                 </div>
               </div>
@@ -406,17 +406,17 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
                   The moment your dish is plated and packed, your phone receives the <strong>Ready to Collect</strong> alert:
                 </p>
 
-                <div className="mt-6 p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
+                <div className="mt-6 p-4 sm:p-5 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
                       Your Digital Token Number
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs">
+                    <span className="px-2.5 sm:px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs">
                       READY TO COLLECT
                     </span>
                   </div>
 
-                  <div className="text-3xl font-display font-black text-slate-900">
+                  <div className="text-2xl sm:text-3xl font-display font-black text-slate-900">
                     #1 (or your active token)
                   </div>
 
@@ -426,13 +426,13 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+                <div className="mt-8 flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
                   <a
                     href={PLAY_STORE_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onDownloadClick}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF7A30] to-[#FF5200] text-white font-bold text-sm shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-2xl bg-gradient-to-r from-[#FF7A30] to-[#FF5200] text-white font-bold text-sm shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 transition-all cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download on Google Play</span>

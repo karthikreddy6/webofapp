@@ -21,30 +21,30 @@ export default function PrivacyPolicy({ onNavigateHome }) {
         </button>
 
         {/* Header */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm mb-10">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 border border-slate-200/80 shadow-sm mb-6 sm:mb-10">
           <img
             src="/images/logo.png"
             alt="Buvva College Food Ordering"
-            className="w-32 sm:w-36 mb-5 drop-shadow-sm"
+            className="w-28 sm:w-36 mb-4 sm:mb-5 drop-shadow-sm"
           />
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-3 sm:mb-4">
             <Shield className="w-3.5 h-3.5" />
             <span>Legal & Data Transparency</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-slate-900 tracking-tight">
             Privacy Policy
           </h1>
-          <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-slate-600 text-sm sm:text-lg leading-relaxed">
             Effective Date: October 2026 • Last Updated: October 4, 2026
           </p>
-          <p className="mt-2 text-slate-600 text-sm">
+          <p className="mt-2 text-slate-600 text-xs sm:text-sm">
             At <strong>Buvva</strong> (operated via <span className="text-[#FF5200]">buvva.co.in</span>), we value your trust and are committed to protecting the privacy of students, campus faculty, and canteen operators.
           </p>
         </div>
 
         {/* Content Card */}
-        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-sm space-y-10 text-slate-700 text-sm sm:text-base leading-relaxed">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 lg:p-12 border border-slate-200/80 shadow-sm space-y-8 sm:space-y-10 text-slate-700 text-sm sm:text-base leading-relaxed">
           
           {/* Section 1 */}
           <section>

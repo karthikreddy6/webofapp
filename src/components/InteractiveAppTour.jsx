@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   UserPlus,
@@ -77,9 +77,25 @@ const STEPS = [
 
 export default function InteractiveAppTour({ onNavigatePage }) {
   const [activeStep, setActiveStep] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  // Auto-tour rotation with pause on user interaction
+  useEffect(() => {
+    if (isPaused) return
+    const timer = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEPS.length)
+    }, 4500)
+    return () => clearInterval(timer)
+  }, [isPaused])
 
   return (
-    <section id="how-it-works" className="py-24 lg:py-32 relative overflow-hidden bg-white">
+    <section
+      id="how-it-works"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      className="py-24 lg:py-32 relative overflow-hidden bg-white"
+    >
       {/* Background ambient accents */}
       <div className="absolute top-0 right-0 w-[550px] h-[550px] bg-orange-100/50 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[450px] bg-amber-100/40 rounded-full blur-[130px] pointer-events-none" />
@@ -87,7 +103,13 @@ export default function InteractiveAppTour({ onNavigatePage }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
             The Complete 6-Step Journey
           </div>
@@ -97,7 +119,7 @@ export default function InteractiveAppTour({ onNavigatePage }) {
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Register, select your college, pick dishes, choose schedule or live prep, and grab your order with zero line.
           </p>
-        </div>
+        </motion.div>
 
         {/* Mobile Layout (< lg): Stepper Pills -> Centered Phone -> Active Detail Card */}
         <div className="lg:hidden flex flex-col items-center">
@@ -273,9 +295,14 @@ export default function InteractiveAppTour({ onNavigatePage }) {
                       </h3>
 
                       {isActive && (
-                        <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed animate-in fade-in duration-200">
+                        <motion.p
+                          initial={{ opacity: 0, y: 4 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed"
+                        >
                           {step.description}
-                        </p>
+                        </motion.p>
                       )}
                     </div>
                   </div>

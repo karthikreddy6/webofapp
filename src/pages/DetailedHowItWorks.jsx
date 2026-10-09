@@ -66,7 +66,13 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
         <div className="space-y-8 sm:space-y-16">
           
           {/* STEP 1: Register */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -118,10 +124,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* STEP 2: Select College */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_select_college.png */}
@@ -181,10 +193,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* STEP 3: Select Item from Menu */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -244,10 +262,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* STEP 4: Checkout */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_plate.png */}
@@ -307,10 +331,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* STEP 5: Schedule (Shedual) */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7">
@@ -371,10 +401,16 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
           {/* STEP 6: Get Order (Zero Wait Pickup) */}
-          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 border border-slate-200/80 shadow-sm"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Screenshot: screen_order_token.png */}
@@ -449,7 +485,7 @@ export default function DetailedHowItWorks({ onNavigateHome, onDownloadClick }) 
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

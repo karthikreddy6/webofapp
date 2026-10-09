@@ -100,8 +100,8 @@ export default function GooglePlayDownload() {
             {/* Right: 3D Phone with real screenshot */}
             <div className="lg:col-span-5 flex justify-center mt-6 lg:mt-0" style={{ perspective: '1200px' }}>
               <motion.div
-                animate={{ rotateY: [-3, 3, -3], rotateX: [3, 5, 3] }}
-                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                animate={{ y: [0, -12, 0], rotateY: [-3, 3, -3], rotateX: [3, 5, 3] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                 className="relative"
                 style={{ transformStyle: 'preserve-3d' }}
               >

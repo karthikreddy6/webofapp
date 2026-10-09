@@ -8,7 +8,13 @@ export default function QueueVsBuvva() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
             The Campus Reality Check
           </div>
@@ -18,13 +24,19 @@ export default function QueueVsBuvva() {
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Compare 20 agonizing minutes in a packed lunch rush against the effortless 30-second pickup with Buvva.
           </p>
-        </div>
+        </motion.div>
 
         {/* Comparison Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
           
           {/* Pain Point Card: Old Way */}
-          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-red-50/40 border border-red-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-red-50/40 border border-red-200/80 shadow-sm flex flex-col justify-between relative overflow-hidden"
+          >
             <div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
@@ -69,10 +81,16 @@ export default function QueueVsBuvva() {
               <span>Average wait time: 18 - 25 minutes</span>
               <span className="font-bold text-red-600">High Stress</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Solution Card: The Buvva Way */}
-          <div className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-gradient-to-b from-orange-50/70 via-white to-orange-50/40 border border-[#FF5200]/30 shadow-xl shadow-orange-500/10 flex flex-col justify-between relative overflow-hidden ring-1 ring-[#FF5200]/20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 bg-gradient-to-b from-orange-50/70 via-white to-orange-50/40 border border-[#FF5200]/30 shadow-xl shadow-orange-500/10 flex flex-col justify-between relative overflow-hidden ring-1 ring-[#FF5200]/20"
+          >
             <div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
                 <div className="flex items-center gap-3">
@@ -119,7 +137,7 @@ export default function QueueVsBuvva() {
                 <Sparkles className="w-3.5 h-3.5" /> Zero Lost Time
               </span>
             </div>
-          </div>
+          </motion.div>
 
         </div>
 

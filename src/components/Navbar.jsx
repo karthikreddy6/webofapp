@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Download, Menu, X, ArrowUpRight, BookOpen } from 'lucide-react'
 import { PLAY_STORE_URL } from '../constants'
 
@@ -111,70 +112,78 @@ export default function Navbar({ onDownloadClick, onNavigatePage, currentPage })
       </nav>
 
       {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden mt-2 max-w-6xl mx-auto rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200 p-5 shadow-2xl flex flex-col gap-3.5 animate-in fade-in slide-in-from-top-2 duration-200">
-          <button
-            onClick={() => handleNavClick('#how-it-works')}
-            className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="md:hidden mt-2 max-w-6xl mx-auto rounded-2xl bg-white/95 backdrop-blur-2xl border border-slate-200 p-5 shadow-2xl flex flex-col gap-3.5"
           >
-            How It Works
-          </button>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false)
-              onNavigatePage('how-it-works')
-            }}
-            className="text-left text-base font-bold text-[#FF5200] flex items-center gap-2 py-1"
-          >
-            <BookOpen className="w-4 h-4" />
-            <span>Detailed App Workflow Guide</span>
-          </button>
-          <button
-            onClick={() => handleNavClick('#comparison')}
-            className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
-          >
-            Queue vs Buvva
-          </button>
-          <button
-            onClick={() => handleNavClick('#features')}
-            className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
-          >
-            Features
-          </button>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false)
-              onNavigatePage('privacy')
-            }}
-            className="text-left text-sm text-slate-500 hover:text-slate-800 py-1"
-          >
-            Privacy Policy
-          </button>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false)
-              onNavigatePage('terms')
-            }}
-            className="text-left text-sm text-slate-500 hover:text-slate-800 py-1"
-          >
-            Terms & Conditions
-          </button>
-          <hr className="border-slate-200 my-1" />
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              setMobileMenuOpen(false)
-              if (onDownloadClick) onDownloadClick()
-            }}
-            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF7A30] to-[#FF5200] shadow-md shadow-orange-500/30"
-          >
-            <Download className="w-4 h-4" />
-            <span>Download on Google Play</span>
-          </a>
-        </div>
-      )}
+            <button
+              onClick={() => handleNavClick('#how-it-works')}
+              className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
+            >
+              How It Works
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onNavigatePage('how-it-works')
+              }}
+              className="text-left text-base font-bold text-[#FF5200] flex items-center gap-2 py-1"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Detailed App Workflow Guide</span>
+            </button>
+            <button
+              onClick={() => handleNavClick('#comparison')}
+              className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
+            >
+              Queue vs Buvva
+            </button>
+            <button
+              onClick={() => handleNavClick('#features')}
+              className="text-left text-base font-semibold text-slate-800 hover:text-[#FF5200] py-1"
+            >
+              Features
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onNavigatePage('privacy')
+              }}
+              className="text-left text-sm text-slate-500 hover:text-slate-800 py-1"
+            >
+              Privacy Policy
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onNavigatePage('terms')
+              }}
+              className="text-left text-sm text-slate-500 hover:text-slate-800 py-1"
+            >
+              Terms & Conditions
+            </button>
+            <hr className="border-slate-200 my-1" />
+            <a
+              href={PLAY_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                setMobileMenuOpen(false)
+                if (onDownloadClick) onDownloadClick()
+              }}
+              className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-[#FF7A30] to-[#FF5200] shadow-md shadow-orange-500/30"
+            >
+              <Download className="w-4 h-4" />
+              <span>Download on Google Play</span>
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   )
 }

@@ -19,9 +19,9 @@ function Floating3DPhone({ src, alt, className, style, delay = 0, rotateX = 12, 
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50, rotateX: 20, rotateY: -10 }}
-      animate={{ opacity: 1, y: 0, rotateX, rotateY }}
-      transition={{ duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] }}
       className={`relative ${className || ''}`}
       style={{
         perspective: '1200px',
@@ -31,10 +31,15 @@ function Floating3DPhone({ src, alt, className, style, delay = 0, rotateX = 12, 
     >
       <motion.div
         animate={{
+          y: [0, -12, 0],
           rotateX: rotateX + mousePos.y * -4,
           rotateY: rotateY + mousePos.x * 6,
         }}
-        transition={{ type: 'spring', stiffness: 75, damping: 30 }}
+        transition={{
+          y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay },
+          rotateX: { type: 'spring', stiffness: 75, damping: 30 },
+          rotateY: { type: 'spring', stiffness: 75, damping: 30 },
+        }}
         className="relative"
         style={{ transformStyle: 'preserve-3d' }}
       >
@@ -106,8 +111,8 @@ function FloatingFoodImage({ src, alt, className, delay = 0 }) {
 
 export default function Hero({ onDownloadClick, onNavigatePage }) {
   const { scrollY } = useScroll()
-  const heroY = useTransform(scrollY, [0, 600], [0, -100])
-  const heroOpacity = useTransform(scrollY, [0, 450], [1, 0])
+  const heroY = useTransform(scrollY, [0, 800], [0, -60])
+  const heroOpacity = useTransform(scrollY, [0, 800], [1, 0.4])
 
   return (
     <section className="relative min-h-screen pt-28 pb-16 lg:pt-34 lg:pb-20 overflow-hidden flex items-center bg-gradient-to-b from-[#FFFDF9] via-[#FAF8F5] to-[#F5F2EB]">

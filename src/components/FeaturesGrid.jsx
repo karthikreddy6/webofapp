@@ -59,7 +59,13 @@ export default function FeaturesGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5200] text-xs font-bold uppercase tracking-wider mb-4">
             Engineered for Campus Life
           </div>
@@ -69,15 +75,19 @@ export default function FeaturesGrid() {
           <p className="mt-4 text-base sm:text-lg text-slate-600">
             Every feature in Buvva was designed to eliminate the daily lunchtime bottlenecks in colleges, universities, and tech parks.
           </p>
-        </div>
+        </motion.div>
 
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {FEATURES.map((item, idx) => {
             const Icon = item.icon
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className={`group p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-b ${item.color} bg-white border ${item.border} hover:border-[#FF5200] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 flex flex-col justify-between`}
               >
                 <div>
@@ -102,7 +112,7 @@ export default function FeaturesGrid() {
                   <span>Optimized for students</span>
                   <Sparkles className="w-3.5 h-3.5" />
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>
